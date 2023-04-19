@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards,  Inject} from '@nestjs/common';
 import { AuthGuard } from "@nestjs/passport"
 import { CitiService } from './citi.service';
 import { CreateCitiDto } from './dto/create-citi.dto';
@@ -6,7 +6,9 @@ import { UpdateCitiDto } from './dto/update-citi.dto';
 
 @Controller('citi')
 export class CitiController {
-  constructor(private readonly citiService: CitiService) {}
+  constructor(private readonly citiService: CitiService) {
+    
+  }
   // @Post()
   // // @UseGuards(AuthGuard('auth-basic'))
 
@@ -23,6 +25,7 @@ export class CitiController {
   @UseGuards(AuthGuard('basic'))
 
   create(@Body() createCitiDto: CreateCitiDto) {
+    
     return this.citiService.create(createCitiDto);
   }
 

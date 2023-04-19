@@ -11,7 +11,7 @@ import { AuthModule } from './auth/auth.module';
       isGlobal:true,
       envFilePath:".env"
     }),
-    MongooseModule.forRoot(process.env.MONGO_URL),
+    MongooseModule.forRoot('mongodb://localhost/Cities_ALL'),
     CitiModule,
     AuthModule,
 
