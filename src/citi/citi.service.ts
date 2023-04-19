@@ -151,7 +151,7 @@ export class CitiService {
   }
 
   createdcity(createCitiDto: CreateCitiDto): any {
-    const temp = (this.httpService.get(`https://api.openweathermap.org/data/2.5/weather?q=${createCitiDto.city}&appid=c136c9782d5d4c1514591bb3463e56be&units=metric`).pipe(map((response) => response.data.main.temp)));
+    const temp = (this.httpService.get(`https://api.openweathermap.org/data/2.5/weather?q=${createCitiDto.city}&appid=${this.API_KEYS}&units=metric`).pipe(map((response) => response.data.main.temp)));
     return temp;
   }
   findOne(id: number) {
